@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthMate - SignUp & Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="overlay form-container animate-slide-up">
+            <h1 class="title">Welcome to <span class="highlight">HealthMate</span></h1>
+            <p class="subtitle">Your Personal AI Health Assistant</p>
+
+            <div class="form-card">
+                <div class="tab-buttons">
+                    <button id="signupTab" class="active">Sign Up</button>
+                    <button id="loginTab">Login</button>
+                </div>
+
+                <!-- Signup Form -->
+                <form id="signupForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="signupUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signupEmail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signupPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn glow">Sign Up</button>
+                </form>
+
+                <!-- Login Form -->
+                <form id="loginForm" style="display: none;">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn glow">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
