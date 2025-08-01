@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History - Medibot</title>
+  <link rel="stylesheet" href="new-style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+         <li><a href="new-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="consult.html"><i class="fas fa-stethoscope"></i> Consult</a></li>
+        <li><a href="medibot.html"><i class="fas fa-stethoscope"></i> Medibot</a></li>
+        <li><a href="reminder.html"><i class="fas fa-bell"></i> Reminder</a></li>
+        <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+        <li><a href="suggestedmed.html"><i class="fas fa-pills"></i> Suggested Medicines</a></li>
+        <li><a href="tips.html" class="active"><i class="fas fa-lightbulb"></i> Tips</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      </ul>
+    </aside>
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient History</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    :root {
+      --primary-blue: #3b6cc7;
+      --primary-teal: #2a5298;
+      --accent-green: #38ef7d;
+      --highlight-yellow: #FFD600;
+      --highlight-orange: #FFB800;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, var(--primary-blue), var(--primary-teal), var(--accent-green));
+      padding: 40px;
+      margin-left: 300px;
+      color: white;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    table {
+      width: 90%;
+      max-width: 900px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    table th, table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    table th {
+      background: rgba(0,0,0,0.3);
+      color: var(--highlight-yellow);
+    }
+
+    table tr:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    button {
+      padding: 6px 15px;
+      margin: 2px;
+      background: var(--highlight-yellow);
+      color: black;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: var(--highlight-orange);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h2>🧾 All Patient Histories</h2>
+
+  <table id="historyTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Problem</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Load all patient histories from localStorage
+    const patients = JSON.parse(localStorage.getItem('patientHistoryList') || '[]');
+    const tbody = document.querySelector('#historyTable tbody');
+
+    if (patients.length === 0) {
+      tbody.innerHTML = <tr><td colspan="5" style="text-align:center;">No patient history found</td></tr>;
+    } else {
+      patients.forEach((patient, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${patient.name || 'N/A'}</td>
+          <td>${patient.age || 'N/A'}</td>
+          <td>${patient.problem || 'N/A'}</td>
+          <td>${patient.phone || 'N/A'}</td>
+          <td>
+            <button onclick="viewPatient(${index})">View</button>
+            <button onclick="downloadPDF(${index})">Download PDF</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // View Patient details in alert
+    function viewPatient(index) {
+      const patient = patients[index];
+      alert(`Name: ${patient.name}
+Age: ${patient.age}
+Problem: ${patient.problem}
+Symptoms: ${patient.symptoms}
+Phone: ${patient.phone}
+Remedy: ${patient.remedy}`);
+    }
+
+    // Download PDF for a specific patient
+    function downloadPDF(index) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const patient = patients[index];
+
+      doc.setFontSize(18);
+      doc.text("Patient History", 20, 20);
+
+      const content = `
+Name: ${patient.name || 'N/A'}
+Age: ${patient.age || 'N/A'}
+Problem: ${patient.problem || 'N/A'}
+Symptoms: ${patient.symptoms || 'N/A'}
+Phone: ${patient.phone || 'N/A'}
+Suggested Remedy: ${patient.remedy || 'N/A'}
+      `;
+
+      doc.setFontSize(12);
+      doc.text(content, 20, 40);
+   
+    }
+  </script>
+</body>
+</html>

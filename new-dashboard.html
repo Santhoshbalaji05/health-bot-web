@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medibot Dashboard</title>
+  <link rel="stylesheet" href="new-style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="new-dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="consult.html"><i class="fas fa-stethoscope"></i> Consult</a></li>
+        <li><a href="medibot.html"><i class="fas fa-stethoscope"></i> Medibot</a></li>
+        <li><a href="reminder.html"><i class="fas fa-bell"></i> Reminder</a></li>
+        <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+        <li><a href="suggestedmed.html"><i class="fas fa-pills"></i> Suggested Medicines</a></li>
+        <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Tips</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+  
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="topbar">
+        <h1>Medibot Health Assistant</h1>
+        <div class="profile-section">
+          <img id="profilePic" src="default-profile.png" alt="Profile" class="profile-pic">
+          <button id="openEditModalBtn" class="yellow-btn">Edit</button>
+        </div>
+      </header>
+      
+      <section class="welcome-section">
+        <h2>Welcome, <span id="userName"></span>!</h2>
+        <p>Explore your health assistant tools from the sidebar.</p>
+      </section>
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div id="profileModal" class="modal" style="display: none;">
+    <div class="modal-content wide animate-pop">
+      <span id="closeModal" class="close-btn">&times;</span>
+      <h2>Edit Your Details</h2>
+      <form id="editProfileForm" class="grid-form">
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="number" id="age" placeholder="Age" required>
+        <input type="date" id="dob" required>
+        <select id="gender" required>
+          <option value="">Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <select id="height" required>
+          <option value="">Height</option>
+          <option value="Below 150 cm">Below 150 cm</option>
+          <option value="150-155 cm">150-155 cm</option>
+          <option value="155-160 cm">155-160 cm</option>
+          <option value="160-165 cm">160-165 cm</option>
+          <option value="165-170 cm">165-170 cm</option>
+          <option value="170-175 cm">170-175 cm</option>
+          <option value="175-180 cm">175-180 cm</option>
+          <option value="Above 180 cm">Above 180 cm</option>
+        </select>
+        <select id="weight" required>
+          <option value="">Weight</option>
+          <option value="Below 40 kg">Below 40 kg</option>
+          <option value="40-50 kg">40-50 kg</option>
+          <option value="50-60 kg">50-60 kg</option>
+          <option value="60-70 kg">60-70 kg</option>
+          <option value="70-80 kg">70-80 kg</option>
+          <option value="Above 80 kg">Above 80 kg</option>
+        </select>
+        <select id="location" required>
+          <option value="">State</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Delhi">Delhi</option>
+        </select>
+        <button type="submit" class="yellow-btn full-width">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="new-dashboard.js"></script>
+</body>
+</html>

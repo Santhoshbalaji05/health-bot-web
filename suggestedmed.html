@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suggested Medicines</title>
+  <link rel="stylesheet" href="new-style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+         <li><a href="new-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="consult.html"><i class="fas fa-stethoscope"></i> Consult</a></li>
+        <li><a href="medibot.html"><i class="fas fa-stethoscope"></i> Medibot</a></li>
+        <li><a href="reminder.html"><i class="fas fa-bell"></i> Reminder</a></li>
+        <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+        <li><a href="suggestedmed.html"><i class="fas fa-pills"></i> Suggested Medicines</a></li>
+        <li><a href="tips.html" class="active"><i class="fas fa-lightbulb"></i> Tips</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="topbar">
+        <h1>Suggested Medicines</h1>
+      </header>
+
+      <section class="medicine-section">
+        <h2>Commonly Suggested Medicines</h2>
+
+        <!-- Add Medicine Form -->
+        <form id="addMedicineForm" class="medicine-form">
+          <input type="text" id="medName" placeholder="Medicine Name" required>
+          <input type="text" id="medUse" placeholder="Use / Purpose" required>
+          <input type="text" id="medDosage" placeholder="Dosage" required>
+          <button type="submit" class="yellow-btn">Add</button>
+        </form>
+
+        <table class="medicine-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Use</th>
+              <th>Dosage</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="medicineTableBody"></tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+  <script>
+    // Default data if no data present in localStorage
+let medicines = JSON.parse(localStorage.getItem("medicines")) || [
+  { name: "Paracetamol", use: "Fever, mild pain relief", dosage: "500 mg twice daily" },
+  { name: "Ibuprofen", use: "Pain, inflammation", dosage: "400 mg thrice daily" },
+  { name: "Cetirizine", use: "Allergic reactions, cold", dosage: "10 mg once daily (night)" }
+];
+
+const tableBody = document.getElementById("medicineTableBody");
+
+function renderMedicines() {
+  tableBody.innerHTML = "";
+  medicines.forEach((med, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${med.name}</td>
+      <td>${med.use}</td>
+      <td>${med.dosage}</td>
+      <td><button class="delete-btn" onclick="deleteMedicine(${index})">Delete</button></td>
+    `;
+    tableBody.appendChild(row);
+  });
+}
+renderMedicines();
+
+// Add new medicine
+document.getElementById("addMedicineForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("medName").value;
+  const use = document.getElementById("medUse").value;
+  const dosage = document.getElementById("medDosage").value;
+
+  medicines.push({ name, use, dosage });
+  localStorage.setItem("medicines", JSON.stringify(medicines));
+  renderMedicines();
+  e.target.reset();
+});
+
+function deleteMedicine(index) {
+  medicines.splice(index, 1);
+  localStorage.setItem("medicines", JSON.stringify(medicines));
+  renderMedicines();
+}
+
+  </script>
+</body>
+</html>

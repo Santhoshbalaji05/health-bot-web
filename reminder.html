@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reminders - Medibot</title>
+  <link rel="stylesheet" href="new-style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+         <li><a href="new-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="consult.html"><i class="fas fa-stethoscope"></i> Consult</a></li>
+        <li><a href="medibot.html"><i class="fas fa-stethoscope"></i> Medibot</a></li>
+        <li><a href="reminder.html"><i class="fas fa-bell"></i> Reminder</a></li>
+        <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+        <li><a href="suggestedmed.html"><i class="fas fa-pills"></i> Suggested Medicines</a></li>
+        <li><a href="tips.html" class="active"><i class="fas fa-lightbulb"></i> Tips</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medicine Reminder</title>
+  <style>
+    :root {
+      --primary-blue:  #00AEEF;
+      --primary-teal: #3b509c;
+      --accent-green:  #58ec6b;
+      --highlight-yellow: #FFD600;
+      --highlight-orange: #FFB800;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+       background: linear-gradient(to right, #1e3c72, #2a5298, #38ef7d);
+      padding: 40px;
+      color: white;
+      margin-left: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    table {
+      width: 70%;
+      max-width: 900px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    table th, table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    table th {
+      background: rgba(0,0,0,0.3);
+      color: var(--highlight-yellow);
+    }
+
+    table tr:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    input {
+      width: 95%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: var(--highlight-yellow);
+      box-shadow: 0 0 8px var(--highlight-yellow);
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background: var(--highlight-yellow);
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: var(--highlight-orange);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h2>💊 Medicine Reminder</h2>
+  <table id="reminderTable">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Problem</th>
+        <th>Medicine</th>
+        <th>Dosage</th>
+        <th>Time to Remind</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr>
+        <td><input type="date" /></td>
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+        <td><input type="time" /></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="buttons">
+    <button onclick="addRow()">+ Add Row</button>
+    <button onclick="saveReminders()">💾 Save Reminders</button>
+  </div>
+
+  <script>
+    const tableBody = document.getElementById("tableBody");
+
+    // Add new row
+    function addRow() {
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td><input type="date" /></td>
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+        <td><input type="time" /></td>
+      `;
+      tableBody.appendChild(newRow);
+    }
+
+    // Save data to localStorage
+    function saveReminders() {
+      const rows = tableBody.querySelectorAll("tr");
+      const data = [];
+
+      rows.forEach(row => {
+        const inputs = row.querySelectorAll("input");
+        data.push({
+          datetime: inputs[0].value,
+          problem: inputs[1].value,
+          medicine: inputs[2].value,
+          dosage: inputs[3].value,
+          remindTime: inputs[4].value
+        });
+      });
+
+      localStorage.setItem("medicineReminders", JSON.stringify(data));
+      alert("✅ Reminders saved successfully!");
+    }
+
+    // Load saved reminders
+    window.onload = () => {
+      const saved = localStorage.getItem("medicineReminders");
+      if (saved) {
+        const reminders = JSON.parse(saved);
+        tableBody.innerHTML = "";
+        reminders.forEach(reminder => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td><input type="datetime-local" value="${reminder.datetime}" /></td>
+            <td><input type="text" value="${reminder.problem}" /></td>
+            <td><input type="text" value="${reminder.medicine}" /></td>
+            <td><input type="text" value="${reminder.dosage}" /></td>
+            <td><input type="time" value="${reminder.remindTime}" /></td>
+          `;
+          tableBody.appendChild(row);
+        });
+      }
+    };
+  </script>
+</body>
+</html>
+

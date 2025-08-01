@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Tips</title>
+  <link rel="stylesheet" href="new-style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="new-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="consult.html"><i class="fas fa-stethoscope"></i> Consult</a></li>
+        <li><a href="medibot.html"><i class="fas fa-stethoscope"></i> Medibot</a></li>
+        <li><a href="reminder.html"><i class="fas fa-bell"></i> Reminder</a></li>
+        <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+        <li><a href="suggestedmed.html"><i class="fas fa-pills"></i> Suggested Medicines</a></li>
+        <li><a href="tips.html" class="active"><i class="fas fa-lightbulb"></i> Tips</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      </ul>
+    </aside>
+
+    <div class="main-content">
+      <header class="topbar">
+        <h1>Health Tips</h1>
+      </header>
+
+      <section class="tips-section">
+        <form id="addTipForm" class="tip-form">
+          <input type="text" id="tipText" placeholder="Enter new tip" required>
+          <button type="submit" class="yellow-btn">Add Tip</button>
+        </form>
+        <ul id="tipsList"></ul>
+      </section>
+    </div>
+  </div>
+  <script>
+  let tips = JSON.parse(localStorage.getItem("tips")) || [
+  "Drink at least 2 liters of water every day.",
+  "Get 7-8 hours of sleep daily.",
+  "Exercise for at least 30 minutes daily."
+];
+
+const tipsList = document.getElementById("tipsList");
+
+function renderTips() {
+  tipsList.innerHTML = "";
+  tips.forEach((tip, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      ${tip} <button class="delete-btn" onclick="deleteTip(${index})">Delete</button>
+    `;
+    tipsList.appendChild(li);
+  });
+}
+renderTips();
+
+document.getElementById("addTipForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const tip = document.getElementById("tipText").value;
+  tips.push(tip);
+  localStorage.setItem("tips", JSON.stringify(tips));
+  renderTips();
+  e.target.reset();
+});
+
+function deleteTip(index) {
+  tips.splice(index, 1);
+  localStorage.setItem("tips", JSON.stringify(tips));
+  renderTips();
+}
+</script>
+</body>
+</html>

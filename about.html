@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heath Mate Info</title>
+  <link rel="stylesheet" href="new-style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+   <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+         <li><a href="new-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="consult.html"><i class="fas fa-stethoscope"></i> Consult</a></li>
+        <li><a href="medibot.html"><i class="fas fa-stethoscope"></i> Medibot</a></li>
+        <li><a href="reminder.html"><i class="fas fa-bell"></i> Reminder</a></li>
+        <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+        <li><a href="suggestedmed.html"><i class="fas fa-pills"></i> Suggested Medicines</a></li>
+        <li><a href="tips.html" class="active"><i class="fas fa-lightbulb"></i> Tips</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="topbar">
+        <h1>About Us</h1>
+      </header>
+
+  <style>
+    /* ====== Custom Colors & Transitions ====== */
+    :root {
+      --primary-blue: #395ea4; 
+      --primary-teal: #538ff6;
+      --accent-green: #38ef7d;
+      --highlight-yellow: #2cc4ca;
+      --highlight-orange: #525af3;
+    }
+
+    body {
+      background: linear-gradient(to right, var(--primary-blue), var(--primary-teal), var(--accent-green));
+      color: #222;
+      transition: background 0.8s ease;
+    }
+
+    section {
+      transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+    }
+
+    section:hover {
+      transform: scale(1.01);
+    }
+
+    /* Section Gradient Background */
+    .gradient-section {
+      background: linear-gradient(135deg, var(--primary-teal), var(--accent-green));
+      color: white;
+    }
+
+    /* Card Styling for "More Info" */
+    .info-card {
+      background: linear-gradient(135deg, #00B4D8, #00D4B3);
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Contact Form Styling */
+    form {
+      background: linear-gradient(135deg, var(--primary-teal), var(--accent-green));
+      transition: background 0.5s ease;
+    }
+
+    form:hover {
+      background: linear-gradient(135deg, var(--accent-green), var(--primary-teal));
+    }
+
+    input, textarea {
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--highlight-yellow);
+      box-shadow: 0 0 8px var(--highlight-yellow);
+    }
+
+    button {
+      background: var(--highlight-yellow);
+      color: black;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--highlight-orange);
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #111;
+      color: #ddd;
+      transition: background 0.5s ease;
+    }
+
+    footer:hover {
+      background: #222;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- About Us Section -->
+  <section class="gradient-section py-16 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">About Us</h2>
+      <p class="text-lg leading-relaxed max-w-3xl mx-auto text-white/90">
+        We are a team of passionate developers and creatives, dedicated to building immersive digital experiences. We are the students currently in 3rd year of Information Technology.
+        Our mission is to simplify technology and make impactful solutions accessible to everyone. 
+        
+      </p>
+      <p> To contact us : Heathmatemediware@gmail.com</p>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-10 text-white drop-shadow-lg">Contact Us</h2>
+      <form class="p-8 rounded-lg shadow-lg space-y-6">
+        <div>
+          <label class="block text-sm font-medium mb-1 text-white">Your Name</label>
+          <input type="text" placeholder="Your Name" class="w-full border border-gray-300 rounded-lg p-3" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1 text-white">Email Address</label>
+          <input type="email" placeholder="aaaa@example.com" class="w-full border border-gray-300 rounded-lg p-3" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1 text-white">Message</label>
+          <textarea rows="5" placeholder="Message here..." class="w-full border border-gray-300 rounded-lg p-3"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-lg font-semibold">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- More Info Section -->
+  <section class="gradient-section py-16 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6">More Info</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="info-card p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Our Vision</h3>
+          <p>To empower innovation and push boundaries in technology. To get a perfect medical assistant during emergency. Still many products and software technologies will be released by MediWare</p>
+        </div>
+        <div class="info-card p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Our Values</h3>
+          <p>Integrity, creativity, transparency, and a people-first approach in everything we do. We value every life and money.</p>
+        </div>
+        <div class="info-card p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Careers</h3>
+          <p>We're always looking for passionate people to join our team. Contact us to learn more about open roles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center">
+    <p>© 2025 Mediware. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

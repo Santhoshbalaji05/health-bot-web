@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medibot Consultation</title>
+  <link rel="stylesheet" href="new-style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar (same as dashboard) -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+      <li><a href="new-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="consult.html"><i class="fas fa-stethoscope"></i> Consult</a></li>
+        <li><a href="medibot.html"><i class="fas fa-stethoscope"></i> Medibot</a></li>
+        <li><a href="reminder.html"><i class="fas fa-bell"></i> Reminder</a></li>
+        <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+        <li><a href="suggestedmed.html"><i class="fas fa-pills"></i> Suggested Medicines</a></li>
+        <li><a href="tips.html" class="active"><i class="fas fa-lightbulb"></i> Tips</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="topbar">
+        <h1>Medibot Health Assistant</h1>
+        <div class="profile-section">
+          <img id="profilePic" src="default-profile.png" alt="Profile" class="profile-pic">
+        </div>
+      </header>
+      
+      <section class="content-section active">
+        <div class="form-container">
+          <h2>Health Consultation Form</h2>
+          <form id="consultForm">
+            <!-- Your existing form fields (same as before) -->
+             <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Consultation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+     background: linear-gradient(120deg, #0099ff, #66ffcc);
+    transition: background 0.5s ease;
+    }
+
+     .form-container {
+  
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .checkbox-group {
+      margin-top: 10px;
+    }
+
+    .checkbox-group label {
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 20px;
+     background: linear-gradient(120deg, #0099ff, #66ffcc);
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #46fa91;
+    }
+
+    #other-problem,
+    #other-symptom,
+    #other-duration {
+      display: none;
+      margin-top: 5px;
+    }
+    /* ---- General Page Style ---- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #00AEEF, #00C6A7);
+  margin: 0;
+  padding: 0;
+  color: #222;
+  transition: background 0.5s ease;
+}
+
+/* ---- Form Container ---- */
+.form-container {
+ background: linear-gradient(135deg, #00AEEF, #00C6A7);
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* ---- Heading ---- */
+.form-container h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #0077b6;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+/* ---- Labels ---- */
+label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+  color: #333;
+}
+
+/* ---- Inputs & Selects ---- */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #00a6ff;
+  box-shadow: 0 0 5px rgba(0,166,255,0.4);
+  outline: none;
+}
+
+/* ---- Checkbox Groups ---- */
+.checkbox-group {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.checkbox-group label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* ---- Button ---- */
+.btn {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #0077b6, #00c6a7);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn:hover {
+  background: linear-gradient(90deg, #00c6a7, #0077b6);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+    margin: 20px;
+  }
+  .form-container h2 {
+    font-size: 22px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    
+    <form onsubmit="return handleSubmit(event)">
+      
+      <!-- Problem Dropdown -->
+      <label>Problem:</label>
+      <select id="problem" name="problem" onchange="toggleOther('problem','other-problem')">
+        <option value="">-- Select Problem --</option>
+        <option>Fever</option>
+        <option>Cough</option>
+        <option>Cold</option>
+        <option>Headache</option>
+        <option>Body Pain</option>
+        <option>Stomach Pain</option>
+        <option>Skin Problem</option>
+        <option>Breathing Issue</option>
+        <option>Other</option>
+      </select>
+      <input type="text" id="other-problem" placeholder="Please specify your problem" name="other_problem" />
+
+      <!-- Symptoms Filter -->
+      <label>Symptoms:</label>
+      <select id="symptoms" name="symptoms" onchange="toggleOther('symptoms','other-symptom')">
+        <option value="">-- Select Symptom --</option>
+        <option>Fever</option>
+        <option>Cough</option>
+        <option>Cold</option>
+        <option>Sore Throat</option>
+        <option>Chest Pain</option>
+        <option>Breathing Problem</option>
+        <option>Other</option>
+      </select>
+      <input type="text" id="other-symptom" placeholder="Enter other symptom" name="other_symptom" />
+
+      <!-- Duration Filter -->
+      <label>Duration:</label>
+      <select id="duration" name="duration" onchange="toggleOther('duration','other-duration')">
+        <option value="">-- Select Duration --</option>
+        <option>1-2 days</option>
+        <option>3-5 days</option>
+        <option>1 week</option>
+        <option>2 weeks</option>
+        <option>More than 2 weeks</option>
+        <option>Other</option>
+      </select>
+      <input type="text" id="other-duration" placeholder="Enter custom duration" name="other_duration" />
+
+      <label>Severity Level:</label>
+      <select name="severity">
+        <option>Mild</option>
+        <option>Moderate</option>
+        <option>Severe</option>
+      </select>
+
+      <label>Age:</label>
+      <input type="number" name="age"/>
+
+      <label>Gender:</label>
+      <select name="gender">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label>Any Surgery Before?</label>
+      <select name="surgery"><option>Yes</option><option>No</option></select>
+
+      <label>If Yes, What?</label>
+      <input type="text" name="surgery_detail"/>
+
+      <label>Any Medications Recently?</label>
+      <select name="recent_meds"><option>Yes</option><option>No</option></select>
+
+      <label>If Yes, What?</label>
+      <input type="text" name="recent_meds_detail"/>
+
+      <label>Medical History:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="history" value="Asthma"/> Asthma</label>
+        <label><input type="checkbox" name="history" value="BP"/> BP</label>
+        <label><input type="checkbox" name="history" value="Diabetes"/> Diabetes</label>
+        <label><input type="checkbox" name="history" value="Thyroid"/> Thyroid</label>
+        <label><input type="checkbox" name="history" value="Heart Problem"/> Heart Problem</label>
+      </div>
+
+      <label>Symptoms (Multiple):</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="symptoms_box" value="Fever"/> Fever</label>
+        <label><input type="checkbox" name="symptoms_box" value="Cough"/> Cough</label>
+        <label><input type="checkbox" name="symptoms_box" value="Cold"/> Cold</label>
+        <label><input type="checkbox" name="symptoms_box" value="Sore Throat"/> Sore Throat</label>
+        <label><input type="checkbox" name="symptoms_box" value="Chest Pain"/> Chest Pain</label>
+        <label><input type="checkbox" name="symptoms_box" value="Breast Problem"/> Breast Problem</label>
+      </div>
+
+      <label>Does it affect your daily activities?</label>
+      <select name="daily_impact"><option>Yes</option><option>No</option></select>
+
+      <label>Any Allergies?</label>
+      <select name="allergy"><option>Yes</option><option>No</option></select>
+
+      <label>If Yes, What?</label>
+      <input type="text" name="allergy_detail"/>
+
+      <label>Current Medications:</label>
+      <select name="current_meds"><option>Yes</option><option>No</option></select>
+
+      <label>If Yes, Name & Dosage:</label>
+      <input type="text" name="current_meds_detail"/>
+
+      <label>Lifestyle:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="lifestyle" value="Smoke"/> Smoke</label>
+        <label><input type="checkbox" name="lifestyle" value="Alcohol"/> Alcohol</label>
+      </div>
+
+      <label>Sleep Duration (hrs):</label>
+      <input type="number" name="sleep"/>
+
+      <label>Diet:</label>
+      <select name="diet">
+        <option>Veg</option>
+        <option>Non-Veg</option>
+      </select>
+
+      <label>Water (L/day):</label>
+      <input type="text" name="water"/>
+
+      <label>Only for Female:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="female" value="Pregnant"/> Pregnant</label>
+        <label><input type="checkbox" name="female" value="Breastfeeding"/> Breastfeeding</label>
+      </div>
+
+      <label>Last Menstruation Date:</label>
+      <input type="date" name="menstruation_date"/>
+
+      <label>Menstruation:</label>
+      <select name="menstruation">
+        <option>Normal</option>
+        <option>Abnormal</option>
+      </select>
+
+      <label>Lab/Scan Reports (if taken):</label>
+      <input type="file" name="reports"/>
+
+      <br /><br />
+      <label><input type="checkbox" name="agreement"/>I hereby declare that the information provided above is true to the best of my knowledge and belief.I understand that this consultation is for preliminary guidance only.I acknowledge that this is an initial health consultation and may not be sufficient for a complete medical diagnosis. I will seek further professional medical assistance if required.I accept that the consultation advice is based on the details I have provided. The healthcare provider or platform is not responsible for any consequences arising from false or incomplete information.</label>
+
+      
+    </form>
+  </div>
+
+  <script>
+    // Show/hide Other input for any dropdown
+    function toggleOther(selectId, inputId) {
+      const select = document.getElementById(selectId);
+      const input = document.getElementById(inputId);
+      input.style.display = (select.value === 'Other') ? 'block' : 'none';
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert("Form submitted successfully!");
+      return false;
+    }
+  </script>
+</body>
+</html>
+            <!-- Copy full form from your previous code here -->
+            <center><button type="submit" class="btn">MEDIBOT CHECK</button></center>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("consultForm").addEventListener("submit", e=>{
+        e.preventDefault();
+        alert("Consultation form submitted successfully!");
+    });
+    
+
+  </script>
+  <script src="consult.js"></script>
+
+</body>
+</html>
