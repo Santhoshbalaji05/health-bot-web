@@ -71,3 +71,22 @@ if (savedDetails) {
     document.getElementById("weight").value = savedDetails.weight;
     document.getElementById("location").value = savedDetails.location;
 }
+document.getElementById("userDetailsForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const userDetails = {
+        fullName: document.getElementById("fullName").value,
+        age: document.getElementById("age").value,
+        dob: document.getElementById("dob").value,
+        gender: document.getElementById("gender").value,
+        height: document.getElementById("height").value,
+        weight: document.getElementById("weight").value,
+        location: document.getElementById("location").value
+    };
+
+    // Save data in browser localStorage
+    localStorage.setItem("userDetails", JSON.stringify(userDetails));
+
+    // Redirect to the new dashboard
+    window.location.href = "new-dashboard.html";
+});
